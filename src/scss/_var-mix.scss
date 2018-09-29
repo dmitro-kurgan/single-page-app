@@ -1,0 +1,108 @@
+// VARIABLES
+//FONTS
+$font: 'Open Sans', Arial, sans-serif;
+
+//COLORS
+$pink: #fc5095;
+$crusta: #fc8950;
+$pelorous: #1DA7C0;
+$lightGrey: #d3d3d3;
+$eclipse: #3b3b3b;
+$red: #ff0000;
+
+//DEVICE WIDTH
+$desctop-lg: "screen and (max-width: 1720px)";
+$desctop-md: "screen and (max-width: 1560px)";
+$desctop-sm: "screen and (max-width: 1480px)";
+
+$laptop-lg: "screen and (max-width: 1366px)";
+$laptop-md: "screen and (max-width: 1280px)";
+$laptop-sm: "screen and (max-width: 1024px)";
+
+$tablet: "screen and (max-width: 992px)";
+$mobile: "screen and (max-width: 768px)";
+
+//MIXINS
+//PREFIXIER
+$prefixes: "-webkit-", "-o-", "-moz-", "-ms-";
+@mixin addPrefix($item, $val) {
+	@each $tmp in $prefixes {
+		#{$tmp}#{$item}:#{$val};
+	}
+	#{$item}: $val;
+}
+
+//PCEUDO
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+//FONTS PROPERTIES
+@mixin font-props ($colour: false, $size: false, $weight: false, $ls: false, $lh: false) {
+	@if $colour { color: $colour; }
+    @if $size { font-size: $size; }
+    @if $weight { font-weight: $weight; }
+    @if $ls { letter-spacing: $ls; }
+    @if $lh { line-height: $lh; }
+}
+
+//PLACEHOLDER
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+//COLORS OF THE BLOCKS
+@mixin colorBlock($colorValue) {
+	.main {
+		&__right {
+			background-color: $colorValue;
+		}
+	}
+	.stats {
+		background-color: rgba($colorValue, 0.7);
+	}
+	.field {
+		&__title {
+			color: $colorValue;
+		}
+		&__heart {
+			border-color: $colorValue;
+			span {
+				background-color: $colorValue;
+				&:before, &:after {
+					background-color: $colorValue;
+				}
+			}
+		}
+	}
+	.form {
+		&__radio {
+			&.active {
+				background-color: $colorValue;
+			}
+		}
+	}
+	.btn {
+		&.active {
+			background-color: $colorValue;
+			color: #fff;
+		}
+		&--start {
+			background-color: $colorValue;
+		}
+		&--continue {
+			background-color: $colorValue;
+		}
+		&--disabled {
+			border: 1px solid $colorValue;
+			background-color: #fff;
+			color: #aaa9a9;
+		}
+	}
+}

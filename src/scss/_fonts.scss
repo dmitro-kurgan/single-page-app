@@ -1,0 +1,60 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf) {
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        // svg: "#" + str-replace($name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote("../" + $path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+@include font-face("Open Sans", fonts/OpenSans-Light, 300, normal);
+@include font-face("Open Sans", fonts/OpenSans-Regular, 400, normal);
+@include font-face("Open Sans", fonts/OpenSans-SemiBold, 600, normal);
+@include font-face("Open Sans", fonts/OpenSans-Bold, 700, normal);
+@include font-face("Open Sans", fonts/OpenSans-ExtraBold, 800, normal);
+
+// FONT-FACE FOR CUSTOM SNOWFLAKES
+@font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.eot?85863353');
+    src: url('../fonts/fontello.eot?85863353#iefix') format('embedded-opentype'),
+        url('../fonts/fontello.woff?85863353') format('woff'),
+        url('../fonts/fontello.woff?85863353') format('woff2'),
+        url('../fonts/fontello.ttf?85863353') format('truetype'),
+        url('../fonts/fontello.svg?85863353#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

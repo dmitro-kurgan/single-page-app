@@ -1,0 +1,62 @@
+<main class="main main--pelorous">
+	<div class="main__left" style="background-image: url('./images/girl.jpg')">
+		<div class="main__bottom">
+			<span class="main__name">Название1</span>
+			<span class="main__name">Название2</span>
+			<span class="main__name">Название3</span>
+			<span class="main__name">Название4</span>
+			<span class="main__name">Очень длинное название5</span>
+			<span class="main__name">Очень очень длинное название6</span>
+			<span class="main__name">длинное название7</span>
+			<span class="main__name">длинное название8</span>
+		</div>
+	</div>
+	<div class="main__right">
+		<div class="field">
+			<span class="field__heart">
+				<span></span>
+			</span>
+			<h1 class="field__title">Lorem ipsum dolor sit amet,
+			<br>
+			consectetur adipiscing elit,
+			<br>
+			sed do eiusmod </h1>
+			<form action="/" class="form">
+				<div class="form__group">
+					<h2 class="form__title">Я ищу:</h2>
+					<div class="form__radio form__radio--ver1">
+						<label for="ver1">Вариант 1
+							<input type="radio" id="ver1" value="ver1" name="version" required />
+						</label>
+					</div>
+					<div class="form__radio form__radio--ver2">
+						<label for="ver2">Вариант 2
+							<input type="radio" id="ver2" value="ver2" name="version" />
+						</label>
+					</div>
+				</div>
+				<div class="form__group">
+					<h2 class="form__title">Ваше имя:</h2>
+					<input class="form__control" type="text" id="name" name="name" required />
+				</div>
+				<div class="form__group">
+					<h2 class="form__title">Email:</h2>
+					<input class="form__control" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+				</div>
+				<div class="form__group">
+					<h2 class="form__title">Придумайте пароль:</h2>
+					<input class="form__control" type="password" id="password" name="password" minlength="8" maxlength="12" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$" title="Must contain at least one number and lowercase letter, and at least 8 or more characters" required autocomplete="off"/>
+				</div>
+				<div class="form__group">
+					<div class="form__checkbox">
+						<label for="checkbox" >
+							<input type="checkbox" id="checkbox" checked="checked" required />
+						</label>
+						<p>Регистрируясь, вы подтверждаете, что вам уже исполнилось  18 лет и вы ознакомиись с условиями пользования сайтом.</p>
+					</div>
+				</div>
+				<button type="submit" class="btn btn--continue btn--disabled" id="submit">Продолжить</button>
+			</form>
+		</div>
+	</div>
+</main>
