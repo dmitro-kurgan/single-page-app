@@ -9,6 +9,9 @@ body {
 a {
 	text-decoration: none;
 }
+input, textarea, select, button {
+	font-family: $font;
+}
 @keyframes fadeIt {
 	from {
 		opacity: 0;
@@ -17,12 +20,12 @@ a {
 		opacity: 1;
 	}
 }
+
 .btn {
 	display: block;
 	border-radius: 10px;
 	width: 384px;
 	height: 80px;
-	font-family: $font;
 	@include font-props ($eclipse, 26px, 600, 1.95px, 80px);
 	text-align: center;
 	background-color: #fff;

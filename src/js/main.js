@@ -45,10 +45,6 @@ function onLoadContent () {
 
     // FORM VALIDATION
     if (form) {
-        form.onchange = function () {
-            checkForm();
-        }
-
         //RADIO BUTTONS
         for (let i = 0; i < radio.length; i++) {
             radio[i].onclick = clickRadio;
@@ -75,33 +71,6 @@ function onLoadContent () {
             }
         }
         
-        ///NAME FIELD
-        user.onkeyup = function () {
-            if (!this.value == "") {
-                this.classList.remove('invalid');
-                this.removeAttribute('placeholder');
-            }
-            checkForm();
-        }
-
-        //EMAIL FIELD
-        email.onkeyup = function () {
-            if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.value)) {
-                this.classList.remove('invalid');
-                this.removeAttribute('placeholder');
-            }
-            checkForm();
-        }
-    
-        //PASSWORD FIELD
-        pwd.onkeyup = function () {
-            if (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$/.test(this.value)) {
-                this.classList.remove('invalid');
-                this.removeAttribute('placeholder');
-            }
-            checkForm();
-        }
- 
         //CHECK FORM
         function checkForm () {
             let checkRadio = false,
@@ -133,6 +102,36 @@ function onLoadContent () {
                     pwd.setAttribute('placeholder', 'Придумайте новый пароль');
                 }
             }
+        }
+        form.onchange = function () {
+            checkForm();
+        }
+
+        ///NAME FIELD
+        user.onkeyup = function () {
+            if (!this.value == "") {
+                this.classList.remove('invalid');
+                this.removeAttribute('placeholder');
+            }
+            checkForm();
+        }
+
+        //EMAIL FIELD
+        email.onkeyup = function () {
+            if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.value)) {
+                this.classList.remove('invalid');
+                this.removeAttribute('placeholder');
+            }
+            checkForm();
+        }
+    
+        //PASSWORD FIELD
+        pwd.onkeyup = function () {
+            if (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$/.test(this.value)) {
+                this.classList.remove('invalid');
+                this.removeAttribute('placeholder');
+            }
+            checkForm();
         }
     }
 }
