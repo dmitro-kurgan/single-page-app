@@ -39,7 +39,7 @@ function onLoadContent() {
         showBtnNext();
     }
     function showBtnNext() {
-        btnNext.style.display = "block";
+        btnNext.style.display = "flex";
         setTimeout(function () {
             btnNext.style.opacity = 1;
         }, 100);
@@ -90,10 +90,6 @@ function onLoadContent() {
             };
         };
 
-        form.onchange = function () {
-            checkForm();
-        };
-
         //RADIO BUTTONS
         for (var _i2 = 0; _i2 < radio.length; _i2++) {
             radio[_i2].onclick = clickRadio;
@@ -110,6 +106,9 @@ function onLoadContent() {
             } else {
                 checkbox.classList.remove('active');
             }
+        };
+        form.onchange = function () {
+            checkForm();
         };
 
         ///NAME FIELD
